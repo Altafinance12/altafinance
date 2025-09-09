@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Альта-Фінанс - Кредитний брокер №1</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero { background-color: #007bff; color: white; text-align: center; padding: 50px 20px; }
+        .hero h1 { font-size: 2.5em; }
+        .countdown { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .countdown div { background: white; color: #007bff; padding: 10px; border-radius: 5px; font-size: 1.2em; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+        .service-card { background: white; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .about { margin: 40px 0; }
+        .form-section { background: #f0f0f0; padding: 40px 20px; border-radius: 8px; }
+        .form-section form { display: grid; gap: 15px; max-width: 600px; margin: 0 auto; }
+        .form-section input, .form-section select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .form-section button { background: #007bff; color: white; border: none; padding: 15px; cursor: pointer; font-size: 1.1em; border-radius: 4px; }
+        .calculator { margin: 40px 0; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .calculator input { width: 100%; margin-bottom: 10px; padding: 10px; }
+        .calculator button { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; }
+        .footer { background: #333; color: white; text-align: center; padding: 20px; }
+        .footer a { color: #fff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Кредит готівкою до 500 000 грн</h1>
+            <p>Ставка від 1,8% в міс. Економія часу. Погоджуваність до 91%. Без застави або під заставу. Без поручителів.</p>
+            <p>Дізнайтесь як зменшити місячний платіж на 20%</p>
+            <div>До кінця акції залишилось</div>
+            <div class="countdown">
+                <div id="days">Днів: 0</div>
+                <div id="hours">Годин: 0</div>
+                <div id="minutes">Хвилин: 0</div>
+                <div id="seconds">Секунд: 0</div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <h2>НАШІ ОСНОВНІ НАПРЯМКИ КРЕДИТУВАННЯ</h2>
+            <div class="service-card">
+                <h3>Кредит готівкою</h3>
+                <p>Сума кредиту від 5000 до 500000 грн. Термін кредиту – від 6 до 60 місяців. Будь-які споживчі цілі. Тип %% ставки – фіксована. Вік 20-80 років.</p>
+            </div>
+            <div class="service-card">
+                <h3>Рефінансування</h3>
+                <p>Рефінансування або перекредитування кредитів, що діють, з метою зменшення щомісячного платежу. Можливість отримати додаткову суму на руки.</p>
+            </div>
+            <div class="service-card">
+                <h3>Для бізнесу</h3>
+                <p>Допоможемо оформити беззаставний кредит будь-якому бізнесу. Можливе фінансування як працюючих підприємців, так і початківців. Зі звітами і без.</p>
+            </div>
+            <div class="service-card">
+                <h3>Під заставу нерухомості</h3>
+                <p>Працюємо з найбільшими банками та приватними інвесторами. Максимальна сума кредиту – до 70% від оціночної вартості застави. Кредитна історія не є важливою.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <h2>ПРО НАС</h2>
+            <p>Компанія «Альта-Фінанс» була започаткована в 2012 році в Запоріжжі. Зі стрімким зростанням почала допомагати клієнтам отримати максимально дешеві кредитні продукти різного плану, від кредитів на картку до іпотечного кредитування та Бізнес-креди...</p>
+            <p>На даний момент за допомогою наших фахівців було видано: Тисячі зручних кредитних продуктів; Вирішено масу складних ситуацій з погашенням кредитів у закритих банках; рефінансовано на менші відсотки сотні дорогих кредитів.</p>
+            <!-- Додай решту тексту з твого документа тут -->
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator">
+            <h2>Калькулятор кредиту (грубий розрахунок)</h2>
+            <input type="number" id="amount" placeholder="Сума кредиту (грн)" min="5000" max="500000">
+            <input type="number" id="term" placeholder="Термін (місяців)" min="6" max="60">
+            <input type="number" id="rate" placeholder="Ставка (% на місяць)" step="0.1" min="1.8">
+            <button onclick="calculatePayment()">Розрахувати</button>
+            <p id="result"></p>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2>Форма зворотнього зв'язку</h2>
+            <p>Заповніть форму зворотного зв'язку, ми зв'яжемося з Вами найближчим часом</p>
+            <form id="contact-form" action="https://formspree.io/f/xnnbwqkz" method="POST">  <!-- Заміни на свій Formspree endpoint -->
+                <label for="name">Ваше ПІБ *</label>
+                <input type="text" id="name" name="Name" placeholder="Петренко Петро Петрович" required>
+
+                <label for="location">З якого Ви міста / області *</label>
+                <input type="text" id="location" name="Location" placeholder="Київ" required>
+
+                <label for="birthdate">Дата народження *</label>
+                <input type="text" id="birthdate" name="Birthdate" placeholder="01.01.1980" required pattern="\d{2}\.\d{2}\.\d{4}">
+
+                <label for="phone">Контактний телефон *</label>
+                <input type="tel" id="phone" name="Phone" placeholder="095 123 4567" required>
+
+                <label for="credit_amount">Необхідна сума кредиту *</label>
+                <input type="number" id="credit_amount" name="CreditAmount" placeholder="50000" required min="5000" max="500000">
+
+                <label for="employment">Працевлаштування *</label>
+                <select id="employment" name="Employment" required>
+                    <option value="">Оберіть варіант</option>
+                    <option value="Офіційно">Офіційно</option>
+                    <option value="Не офіційно">Не офіційно</option>
+                    <option value="Пенсіонер">Пенсіонер</option>
+                    <option value="Не працюю">Не працюю</option>
+                    <option value="Підприємець (ФОП)">Підприємець (ФОП)</option>
+                    <option value="Військовий">Військовий</option>
+                    <option value="Інше">Інше</option>
+                </select>
+
+                <label for="credit_history">Наявність кредитів *</label>
+                <select id="credit_history" name="CreditHistory" required>
+                    <option value="">Оберіть варіант</option>
+                    <option value="Нема кредитів">Нема кредитів</option>
+                    <option value="Є кредити без прострочок">Є кредити без прострочок</option>
+                    <option value="Є кредити з прострочками">Є кредити з прострочками</option>
+                    <option value="Інше">Інше</option>
+                </select>
+
+                <button type="submit">Відправити</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Альта-Фінанс. Адреса: м.Київ, пр. Соборності 7а, офіс 513</p>
+        <p>+38 (096) 93-95-997 (Viber) | +38 (050) 199-78-91 | +38 (098) 495-20-02 | +38 (099) 604-000-3</p>
+        <p>E-mail: altafinance12@gmail.com | Час роботи: Понеділок-п'ятниця з 09.00 до 18.00</p>
+        <a href="https://t.me/yourbot">Перейти в Telegram BOT</a>
+        <p>Компанія "Альта-Фінанс" не є фінансовою організацією... (додай повний дисклеймер з твого тексту)</p>
+    </footer>
+
+    <script>
+        // Countdown Timer (встанови endDate на бажану дату, наприклад, '2025-09-30')
+        function countdown() {
+            const endDate = new Date('2025-09-30').getTime();
+            const now = new Date().getTime();
+            const distance = endDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('days').innerText = `Днів: ${days}`;
+            document.getElementById('hours').innerText = `Годин: ${hours}`;
+            document.getElementById('minutes').innerText = `Хвилин: ${minutes}`;
+            document.getElementById('seconds').innerText = `Секунд: ${seconds}`;
+            if (distance < 0) { clearInterval(timer); }
+        }
+        const timer = setInterval(countdown, 1000);
+        countdown();
+
+        // Credit Calculator
+        function calculatePayment() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const term = parseInt(document.getElementById('term').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100;
+            if (!amount || !term || !rate) {
+                document.getElementById('result').innerText = 'Заповніть всі поля.';
+                return;
+            }
+            const monthlyRate = rate;
+            const payment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
+            document.getElementById('result').innerText = `Щомісячний платіж: ≈ ${payment.toFixed(2)} грн`;
+        }
+    </script>
+</body>
+</html>
